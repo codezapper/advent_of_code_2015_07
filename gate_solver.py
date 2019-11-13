@@ -13,10 +13,10 @@ class GateSolver:
         self.wire_outputs = {}
         self.gates = {}
 
-    def get_gates_from_file(self, filename):
+    def get_gates_from_file(self):
         self.gates = {}
         try:
-            with open(filename, "r") as input_file:
+            with open(self.filename, "r") as input_file:
                 for line in input_file.readlines():
                     line = line.strip()
                     if (line == ""):
@@ -29,7 +29,7 @@ class GateSolver:
 
     def get_wire(self, wire):
         if len(self.gates.keys()) == 0:
-            self.gates = self.get_gates_from_file(self.filename)
+            self.gates = self.get_gates_from_file()
             if len(self.gates.keys()) == 0:
                 return None
 
